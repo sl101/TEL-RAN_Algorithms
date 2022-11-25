@@ -1,5 +1,5 @@
 public class Main {
-    private static int[] arrayTwo;
+    private static int[] arrayT
 
     public static void main(String[] args) {
 
