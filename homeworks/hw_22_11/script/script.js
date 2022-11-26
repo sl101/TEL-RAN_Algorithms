@@ -58,13 +58,31 @@
 
 // Реализовать алгоритм бинарного поиска поиска заданного ключа в отсортированном массиве.
 
-// function binarySearch(sortedArr, key) {
-
-// }
-
 // Сам алгоритм (+ разбирали на уроке, функция test11):
 // 1) Проверяем, что в массиве хотя бы один елемент, если нет, возвращаем -1
 // 2)Берём элемент из середины массива
 // 2) Сравниваем его с искомым (key)
 // 3) Если ключ больше, чем найденный элемент, то повторяем процедуру для правой половины массива
 //  Если ключ меньше, чем найденный элемент, то повторяем процедуру для левой половины массива
+
+const sortedArr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+function binarySearch(arr, key) {
+	if (arr.length > 0) {
+		let index = Math.round((arr.length - 1) / 2);
+		if (arr[index] === key) {
+			return 1;
+		} else {
+			return arr[index] < key
+				? binarySearch(arr.splice(index, arr.length - 1), key)
+				: binarySearch(arr.splice(0, index), key);
+		}
+	} else {
+		return -1;
+	}
+}
+
+console.log(binarySearch(sortedArr, 4));
+
+// time complexity O(lon(n))
+// space complexity O(1)
