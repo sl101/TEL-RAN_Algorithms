@@ -84,5 +84,5 @@ function binarySearch(arr, key) {
 
 console.log(binarySearch(sortedArr, 4));
 
-// time complexity O(lon(n))
+// time complexity O(log(n))
 // space complexity O(1)
