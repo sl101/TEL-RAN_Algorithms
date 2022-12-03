@@ -7,6 +7,8 @@
 
 // Task 1
 // рекурсивный метод решения
+// time complexity O(n)
+// space complexity O(1)
 
 function mooveRing(rod_1, rod_2, rod_3, rings) {
 	if (rings === 1) {
@@ -20,6 +22,8 @@ function mooveRing(rod_1, rod_2, rod_3, rings) {
 
 // Task 2 =====================================================
 // Попробуйте реализовать итеративный метод решения (без рекурсии)
+// time complexity O(n)
+// space complexity O(1)
 
 function mooveIterable(rod_1, rod_2, rod_3, rings) {
 	if (rings % 2 == 0) {
