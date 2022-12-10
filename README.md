@@ -1,6 +1,6 @@
 # TEL-RAN
 
-## Algorithms homeworks
+## Algorithms
 
 - [homeworks](https://github.com/sl101/TEL-RAN_Algorithms/tree/main/homeworks/)
 - [lessons](https://github.com/sl101/TEL-RAN_Algorithms/tree/main/lessons/)
