@@ -41,7 +41,7 @@ function mergeSortedArrays(sortedArrA, sortedArrB) {
 	let lastI = 0;
 	let lastJ = 0;
 
-	for (let i = 0, j = 0; i < sortedArrA.length && j < sortedArrB.length; ) {
+	for (let i = 0, j = 0; i < sortedArrA.length || j < sortedArrB.length; ) {
 		if (sortedArrA[i] <= sortedArrB[j]) {
 			result.push(sortedArrA[i]);
 			lastI = i++;
@@ -67,7 +67,7 @@ function mergeSortedArrays(sortedArrA, sortedArrB) {
 	return result;
 }
 
-// console.log(mergeSort(array));
+console.log(mergeSort(array));
 
 // QuikSort ===========================================================================
 //1) choose (somehow) an element - pivot
