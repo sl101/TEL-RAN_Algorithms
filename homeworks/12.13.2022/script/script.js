@@ -1,8 +1,51 @@
 // Task_1 ======================================================
 // Реализовать алгоритм QuickSort, когда в качестве опорного элемента (pivot) мы выбираем не последний элемент в массиве, а случайный.
 
+// let array = [8, -2, 9, 12, 7, 0, -4, -3, 22, -11, 5, 2, -7, 13, 14, -18, 9];
+let array = [8, -2, 9, 12, 7, 0, 3, 14, -18, 9];
+
+function swap(arr, one, two) {
+	const temp = arr[one];
+	arr[one] = arr[two];
+	arr[two] = temp;
+}
+
+function partition(arr, low, hi) {
+	const pivotPosition = Math.floor(Math.random() * arr.length);
+	const pivot = arr[pivotPosition];
+	while (hi >= low) {
+		while (arr[hi] > pivot) {
+			hi--;
+		}
+		while (arr[low] < pivot) {
+			low++;
+		}
+		if (hi >= low) {
+			swap(arr, low, hi);
+			hi--;
+			low++;
+		}
+	}
+	return low;
+}
+
+function sortRecursion(arr, start = 0, end = arr.length - 1) {
+	if (start < end) {
+		const index = partition(arr, start, end);
+		sortRecursion(arr, start, index - 1);
+		sortRecursion(arr, index, end);
+	}
+	return arr;
+}
+
+const quickSort = (arr) => {
+	return sortRecursion(arr);
+};
+
+console.log(quickSort(array));
+
 // Task_2 ======================================================
-// ЗадачкаДан массив строк. Нужно найти самый длинный общий префикс, используя парадигму DivideAndConquer.
+// Дан массив строк. Нужно найти самый длинный общий префикс, используя парадигму DivideAndConquer.
 
 // Пример,
 // arr = ["return","retard","reunion","rest"]
