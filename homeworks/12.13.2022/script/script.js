@@ -48,7 +48,7 @@
 // Дан массив строк. Нужно найти самый длинный общий префикс, используя парадигму DivideAndConquer.
 
 // Пример,
-// arr = ["return","retard","reunion","rest"]
+arr = ['return', 'retard', 'reunion', 'rest'];
 // prefix = "re"
 
 // arr = ["cheer", "cheerful", "cheese"]
@@ -57,39 +57,52 @@
 // arr = ["mirror", "nothing"]
 // prefix = ""
 
-function prefix(array) {
-	let index = 0;
-	return getLongPrefix(array, index);
-}
+// function prefix(array) {
+// 	let index = 0;
+// 	return getLongPrefix(array, index);
+// }
 
-function getLongPrefix(array, index) {
-	let even = false;
-	let result = '';
+// function getLongPrefix(array, index) {
+// 	let even = false;
+// 	let result = '';
 
-	while (!even) {
-		let count = 0;
-		const tempLong = array[0].length - index;
-		const firstElement = array[0].slice(0, tempLong);
+// 	while (!even) {
+// 		let count = 0;
+// 		const tempLong = array[0].length - index;
+// 		const firstElement = array[0].slice(0, tempLong);
 
-		for (let i = 1; i < array.length; i++) {
-			const element = array[i].slice(0, tempLong);
-			if (firstElement == element) {
-				even = true;
-				result = firstElement;
-			} else {
-				count = 1;
-			}
-		}
+// 		for (let i = 1; i < array.length; i++) {
+// 			const element = array[i].slice(0, tempLong);
+// 			if (firstElement == element) {
+// 				even = true;
+// 				result = firstElement;
+// 			} else {
+// 				count = 1;
+// 			}
+// 		}
 
-		if (count == 1) {
-			even = false;
-			index++;
-		}
-	}
-	return result;
-}
+// 		if (count == 1) {
+// 			even = false;
+// 			index++;
+// 		}
+// 	}
+// 	return result;
+// }
 
-console.log('prefix', prefix(array));
+// console.log('prefix', prefix(array));
 
 // Решить задачу через рекурсию не получилось...
 // рекурсия все время переписывает в переменную result значение из стека выше...
+
+function getPrefixBetweenTwo(first, second) {
+	const minWordsLengths = Math.min(first, second);
+	let i = 0;
+	for (; i < minWordsLengths; i++) {
+		const firstWordChar = first.charAt(i);
+		const seconWordChar = second.charAt(i);
+		if (firstWordChar != seconWordChar) {
+			break;
+		}
+	}
+	return first.substring(0, i);
+}

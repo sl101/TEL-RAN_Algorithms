@@ -116,14 +116,13 @@ function quickSort(arr) {
 
 function quickSortRecursive(arr, start, end) {
 	if (end >= start) {
-		return;
-	} else {
 		// 2) divide array in two parts
 		// 3) recursivaly call for left and right part
 		const indexPivot = partition(arr, start, end);
 		quickSortRecursive(arr, start, indexPivot - 1);
 		quickSortRecursive(arr, indexPivot + 1, end);
 	}
+	return arr;
 }
 
 console.log('array', array);
