@@ -41,3 +41,13 @@ public class Main {
         return cache[n];
     }
 }
+
+//private static int task3(int n){
+//    if(n = 4) return a(4)= sqrt(a(3)*a(3)+a(2)*a(2)) = sqrt(sqrt(3)*sqrt(3)+sqrt(2)*sqrt(2))= sqrt(2+1+2)=sqrt(5);
+
+//    if(n = 0) return a(0) = a0 = 1;
+//    if(n = 1) a(1) = a1 = 1;
+//    if(n = 2) a(2) = sqrt( a(1) * a(1) + a(0) * a(0)) = sqrt(2);
+//    if(n = 3) a(3) = sqrt( a(2) * a(2) + a(1) * a(1)) = sqrt( sqrt(2) * sqrt(2) + 1 * 1 ) = sqrt(3);
+//    if(n = 4) a(4) = sqrt( a(3) * a(3) + a(2) * a(2)) =sqrt(sqrt(3)*sqrt(3)+sqrt(2)*sqrt(2)) = sqrt(3+2) = sqrt(5);
+//}
