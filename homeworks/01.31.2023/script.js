@@ -144,8 +144,27 @@ class MyLinkedList {
 		// if the list is not empty
 		if (this.head !== null) {
 			// if the list has only one element
-			if (this.head.next === null) {
+			let count = 0;
+			if (index == count) {
+				list.removeHead();
 			} else {
+				let prevNode = this.head;
+				count++;
+				while (count < index) {
+					if (prevNode.next != null) {
+						prevNode = prevNode.next;
+						count++;
+					} else {
+						break;
+					}
+				}
+				if ((count = index)) {
+					if (prevNode.next != null) {
+						let tempNode = prevNode.next;
+						prevNode.next = tempNode.next;
+						tempNode = null;
+					}
+				}
 			}
 		}
 	};
@@ -185,4 +204,10 @@ list.print(); // 6 9 3
 console.log('-----');
 list.pushToIndex(8, 5); // 6 9 3 null null 8
 list.print(); // 6 9 3 null null 8
+console.log('-----');
+list.removeByIndex(0); // 9 3 null null 8
+list.print(); // 9 3 null null 8
+console.log('-----');
+list.removeByIndex(1); // 9 null null 8
+list.print(); // 9 null null 8
 console.log('-----');

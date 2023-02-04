@@ -5,14 +5,14 @@
 // push(S)
 // pop(S)
 
-const stack = [4, 6, 8, 2, 5]
+const stack = [4, 6, 8, 2, 5];
 
-console.log(stack.push(6))
-console.log(stack.pop())
-console.log(stack.length === 0) // is Empty
+console.log(stack.push(6));
+console.log(stack.pop());
+console.log(stack.length === 0); // is Empty
 
 function reverse(stack) {
-    if (stack.length === 0) {
-        return stack;
-    }
+	if (stack.length === 0) {
+		return stack;
+	}
 }

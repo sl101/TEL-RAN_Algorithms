@@ -1,114 +1,105 @@
 class Node {
-    data
-    next
+	data;
+	next;
 
-    constructor(data) {
-        this.data = data
-        this.next = null
-    }
+	constructor(data) {
+		this.data = data;
+		this.next = null;
+	}
 
-    setNext(next) {
-        this.next = next
-    }
+	setNext(next) {
+		this.next = next;
+	}
 }
 
 class MyLinkedList {
+	head;
 
-    head
+	constructor() {
+		this.head = null;
+	}
 
-    constructor() {
-        this.head = null
-    }
+	// O(1)
+	pushToHead = function (data) {
+		const newNode = new Node(data);
+		if (this.head === null) {
+			this.head = newNode;
+		} else {
+			newNode.setNext(this.head);
+			this.head = newNode;
+		}
+	};
 
-    // O(1)
-    pushToHead = function (data) {
-        const newNode = new Node(data)
-        if (this.head === null) {
-            this.head = newNode
-        } else {
-            newNode.setNext(this.head)
-            this.head = newNode
-        }
-    }
+	// O(n)
+	pushToTail = function (data) {
+		const newNode = new Node(data);
+		if (this.head === null) {
+			this.head = newNode;
+		} else {
+			// find the last element
+			let node = this.head;
+			while (node !== null && node.next !== null) {
+				node = node.next;
+			}
+			node.setNext(newNode);
+		}
+		// head -> Node(5) -> Node(6) -> Node(7) -> null
+	};
 
-    // O(n)
-    pushToTail = function (data) {
-        const newNode = new Node(data)
-        if (this.head === null) {
-            this.head = newNode;
-        } else {
-            // find the last element
-            let node = this.head;
-            while (node !== null && node.next !== null) {
-                node = node.next
-            }
-            node.setNext(newNode)
-        }
-        // head -> Node(5) -> Node(6) -> Node(7) -> null
-    }
+	removeHead = function () {
+		// if the list is not empty
+		if (this.head !== null) {
+			// if the list has only one element
+			if (this.head.next === null) {
+				this.head = null;
+			} else {
+				const previousHead = this.head;
+				this.head = this.head.next;
+				previousHead.next = null;
+			}
+		}
+	};
 
-    removeHead = function () {
-        // if the list is not empty
-        if (this.head !== null) {
-            // if the list has only one element
-            if (this.head.next === null) {
-                this.head = null;
-            } else {
-                const previousHead = this.head
-                this.head = this.head.next
-                previousHead.next = null
-            }
-        }
-    }
+	// O(n)
+	removeTail = function () {
+		if (this.head !== null) {
+			// if the list has only one element
+			if (this.head.next === null) {
+				this.head = null;
+			} else {
+				let node = this.head;
+				let prevNode = null;
+				while (node.next !== null) {
+					prevNode = node;
+					node = node.next;
+				}
+				prevNode.next = null;
+			}
+		}
+	};
 
-    // O(n)
-    removeTail = function () {
-        if (this.head !== null) {
+	print = function () {
+		let node = this.head;
+		while (node !== null) {
+			console.log(node.data);
+			node = node.next;
+		}
+	};
 
-            // if the list has only one element
-            if (this.head.next === null) {
-                this.head = null;
-            } else {
-                let node = this.head;
-                let prevNode = null
-                while (node.next !== null) {
-                    prevNode = node
-                    node = node.next
-                }
-                prevNode.next = null
-            }
-        }
-    }
+	// retrieves data by index
+	// Node(5) -> Node(6) -> Node(7)
+	// get(2) returns 7
+	get = function (index) {};
 
-    print = function () {
-        let node = this.head
-        while (node !== null) {
-            console.log(node.data)
-            node = node.next
-        }
-    }
+	// Node(5) -> Node(6) -> Node(7)
+	// pushToIndex(8, 1)
+	// result: Node(5) -> Node(8) -> Node(6) -> Node(7)
+	pushToIndex = function (data, index) {};
 
-    // retrieves data by index
-    // Node(5) -> Node(6) -> Node(7)
-    // get(2) returns 7
-    get = function (index) {
-
-    }
-
-
-    // Node(5) -> Node(6) -> Node(7)
-    // pushToIndex(8, 1)
-    // result: Node(5) -> Node(8) -> Node(6) -> Node(7)
-    pushToIndex = function (data, index) {
-
-    }
-
-    // Node(5) -> Node(6) -> Node(7)
-    // removeByIndex(1)
-    // result: Node(5) -> Node(7)
-    removeByIndex = function (index) {
-
-    }
+	// Node(5) -> Node(6) -> Node(7)
+	// removeByIndex(1)
+	// result: Node(5) -> Node(7)
+	removeByIndex = function (index) {};
 }
 
 // [5,6,7]
@@ -204,18 +195,9 @@ class MyLinkedList {
 //
 
 // print
-const list = new MyLinkedList()
-list.pushToTail(6) // 6
-list.pushToTail(9) // 6 9
-list.pushToTail(3) // 6 9 3
-list.pushToHead(2) // 2 6 9 3
-list.print() // 2 6 9 3
-
-
-
-
-
-
-
-
-
+const list = new MyLinkedList();
+list.pushToTail(6); // 6
+list.pushToTail(9); // 6 9
+list.pushToTail(3); // 6 9 3
+list.pushToHead(2); // 2 6 9 3
+list.print(); // 2 6 9 3
