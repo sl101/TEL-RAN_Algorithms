@@ -1,23 +1,24 @@
-// function reverseGroup(arr, k) {
-// 	if (k <= arr.length) {
-// 		if (k == 0) {
-// 			return arr;
-// 		}
-// 		if (k == arr.length) {
-// 			return arr.reverse();
-// 		}
-// 		return [
-// 			...arr.slice(0, k).reverse(),
-// 			...arr.slice(k, arr.length).reverse(),
-// 		];
-// 	}
-// }
+function reverseGroup(arr, k) {
+	if (k <= arr.length) {
+		if (k == 0) {
+			return arr;
+		}
+		if (k == arr.length) {
+			return arr.reverse();
+		}
+		return [
+			...arr.slice(0, k).reverse(),
+			...arr.slice(k, arr.length).reverse(),
+		];
+	}
+}
 
-// const k = 3;
-// const arr = [1, 2, 3, 4, 5];
-// const arr2 = [5, 6, 8, 9];
-// console.log(reverseGroup(arr, 3));
-// console.log(reverseGroup(arr2, 3));
+const k = 3;
+const arr = [1, 2, 3, 4, 5];
+const arr2 = [5, 6, 8, 9];
+console.log(reverseGroup(arr, 3));
+console.log(reverseGroup(arr2, 3));
+console.log('-----------');
 // ================================================
 // Task 1.
 // Find the smallest positive element, which given sorted array doesn't contain. All elements of an array are sorted
