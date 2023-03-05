@@ -1,3 +1,5 @@
+// Реализовать DFS inorder, preorder and postorder
+
 class Node {
 	constructor(value) {
 		this.value = value;
